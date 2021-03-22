@@ -11,6 +11,18 @@
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
 	</bean>
 	
+	<!-- DB Connection 객체와 XML 파일의 위치를 알려주는 클래스가 필요하다 -->
+	<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactoryBean">
+		<!--  바로 위의 dataSource  -->
+		<property name="dataSource" ref="dataSource"></property>
+		<!-- classpath는 src/main/java, src/main/resources를 의미함 -->
+		<property name="mapperLocations" value="classpath:database/mappers/*Mapper.xml"></property>
+	</bean>
+	
+	<!-- 미리 전송과 결과 맵핑 -->
+	<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactoryBean"></constructor-arg>
+	</bean>
 	
 		
 </beans>

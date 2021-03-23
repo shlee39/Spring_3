@@ -9,20 +9,12 @@
 		insert into member values(#{id},#{pw},#{name},#{email},#{phone})
 	</insert>
 	
+	<update id="memberUpdate" parameterType="com.sh.s3.member.memberDTO">
+		update member set pw=#[pw}, name=#{name}, email=#{email}, phone=#{phone} where id=#{id}
+	</update>
+	
 	<delete id="setDelete" parameterType="com.sh.s3.member.memberDTO">
-		select * from member
+		delete member where name=#{name}
 	</delete>
+
 </mapper>
-
-
-
-<!-- bankbook code  -->
-	<select id="getSelect" parameterType="com.sh.s3.bankbook.BankBookDTO" resultType="com.sh.s3.bankbook.BankBookDTO">
-	<!-- bookNumber 타입을 Long으로 받기 위해 -->
-		select * from bankbook where bookNumber=#{bookNumber}
-	</select>
-	
-	<select id="getList" resultType="com.sh.s3.bankbook.BankBookDTO">
-		select * from bankbook order by bookNumber desc
-	</select>
-	

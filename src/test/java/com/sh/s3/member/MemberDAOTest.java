@@ -43,7 +43,12 @@ public class MemberDAOTest extends MyAbstractTest{
 		
 
 }
-
+	public void memberDeleteTest() throws Exception{
+		
+		MemberDTO memberDTO = new MemberDTO()
+		
+		
+	}
 
 
 }

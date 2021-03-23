@@ -17,6 +17,7 @@
 		<property name="dataSource" ref="dataSource"></property>
 		<!-- classpath는 src/main/java, src/main/resources를 의미함 -->
 		<property name="mapperLocations" value="classpath:database/mappers/*Mapper.xml"></property>
+		<property name="configLocation" value="classpath:database/config/conf.xml"></property>
 	</bean>
 	
 	<!-- 미리 전송과 결과 맵핑 -->

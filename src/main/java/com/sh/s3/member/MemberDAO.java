@@ -5,13 +5,18 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.sh.s3.bankbook.BankBookDTO;
 
 @Repository
 public class MemberDAO {
 	
 	public int memberUpdate(MemberDTO memberDTO) throws Exception{
 		//id를 제외하고 나머지를 수정
+		return sqlSession.update(NAMESPACE+".setUpdate", memberDTO);
 		
 	}
 	
@@ -21,7 +26,30 @@ public class MemberDAO {
 	}
 	
 	
-	
+		@Autowired
+		private SqlSession sqlSession;
+		private final String NAMESPACE="com.sh.s3.bankbook.BankBookDAO"; 
+		//상수는 전부 대문자로 표기해주면 구분이 쉽다.
+		
+		public int setDelete(BankBookDTO bankBookDTO) throws Exception{
+			return sqlSession.delete(NAMESPACE+".setDelete", bankBookDTO);
+		}
+
+		public int setWrite(BankBookDTO bankBookDTO) throws Exception{
+			//호출하려는 sql문의 위치 지정. insert의 결과값이 숫자가 나온다.
+			int result = sqlSession.insert(NAMESPACE+".setWrite", bankBookDTO);
+
+			return result;
+		}
+		
+		public BankBookDTO getSelect(BankBookDTO bankBookDTO) throws Exception{
+			long num=1L;
+			bankBookDTO = sqlSession.selectOne(NAMESPACE+".getSelect", num);
+			
+			return bankBookDTO;
+			
+			
+		}
 	//memberJoin 데이터를 받아서 DB에 insert 하는 메서드
 	public int memberJoin(MemberDTO memberDTO)throws Exception{
 		//1. 로그인 정보 

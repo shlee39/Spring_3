@@ -4,21 +4,28 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
+<!-- 주로 사용하는 곳의 이름을 풀 패키지로 작성해준다. -->
 <mapper namespace="com.sh.s3.member.memberDAO">
-	<insert id="memberJoin" parameterType="com.sh.s3.member.memberDTO"> 
-		insert into member values(#{id},#{pw},#{name},#{email},#{phone})
-	</insert>
-	
-	<select id="memberLogin" parameterType="com.sh.s3.member.MemberDTO" resultType="com.sh.s3.member.MemberDTO">
+	<!-- 로그인 -->
+	<!-- selelct 외에 나머지는 결과물이 전부 int 타입이기때문에 여기서는 resultType을 지정해줘야 한다. -->
+	<select id="memberLogin" parameterType="com.sh.s3.member.memberDTO" resultType="com.sh.s3.member.memberDTO">
+		<!-- 아이디와 비번이 맞는 멤버를 받아온다 -->
 		select * from member where id=#{id} and pw=#{pw}
 	</select>
 	
-	<update id="memberUpdate" parameterType="com.sh.s3.member.memberDTO">
-		update member set pw=#[pw}, name=#{name}, email=#{email}, phone=#{phone} where id=#{id}
-	</update>
+	<!-- 가입 -->
+	<insert id="memberJoin" parameterType="com.sh.s3.member.memberDTO">
+		insert into member values(#{id}, #{pw}, #{name}, #{phone}, #{email})	
+	</insert>
 	
-	<delete id="setDelete" parameterType="com.sh.s3.member.memberDTO">
+	<!-- 삭제 -->
+	<delete id="memberDelete" parameterType="com.sh.s3.member.memberDTO">
 		delete member where id=#{id}
 	</delete>
-
+	
+	<!-- 업데이트 -->
+	<update id="memberUpdate" parameterType="com.sh.s3.member.memberDTO">
+		update member set pw=#{pw}, name=#{name}, email=#{email}, phone=#{phone} where id=#{id}
+	</update>
+	
 </mapper>

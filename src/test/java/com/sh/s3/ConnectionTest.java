@@ -15,7 +15,7 @@ public class ConnectionTest extends MyAbstractTest{
 
 	//Main Branch Test
 
-	//Memeber Test
+	//Member Test
 	
 
 	@Autowired

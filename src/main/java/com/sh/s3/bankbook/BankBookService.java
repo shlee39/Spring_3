@@ -13,6 +13,12 @@ public class BankBookService {
 	@Autowired
 	private BankBookDAO bankBookDAO; //DAO 선언 및 주입해줘야 함 (의존성 주입 Dependency Injection)
 	
+	
+	public int setDelete(BankBookDTO bankBookDTO) throws Exception {
+		return bankBookDAO.setDelete(bankBookDTO);
+		
+	}
+	
 	//DAO와 동일한 메서드들을 생성해준다.	
 	//Service의 메서드들을 Controller에서 호출할 것이다.
 	public List<BankBookDTO> getList() throws Exception {

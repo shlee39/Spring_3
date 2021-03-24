@@ -22,6 +22,18 @@ public class BankBookController {
 	@Autowired
 	private BankBookService bankBookService;
 	
+	@RequestMapping("bankbookDelete")
+	public String setDelete(BankBookDTO bankBookDTO)throws Exception{
+		System.out.println("Delete");
+		System.out.println(bankBookDTO.getBookNumber());
+		int result = bankBookService.setDelete(bankBookDTO);
+		System.out.println(result);
+		
+		//다시 리스트로 돌아오는 것
+		return "redirect:./bankbookList";
+		
+	}
+	
 	//실행할 수 있는 메서드 준비
 	//이 메서드는 특정 주소가 들어왔을 때 실행한다. 형식은 GET 방식 (생략하면 GET방식으로 자동 설정)
 	@RequestMapping("bankbookList")

@@ -13,6 +13,10 @@ public class BankBookService {
 	@Autowired
 	private BankBookDAO bankBookDAO; //DAO 선언 및 주입해줘야 함 (의존성 주입 Dependency Injection)
 	
+	public int setUpdate(BankBookDTO bankBookDTO)throws Exception{
+		return bankBookDAO.setUpdate(bankBookDTO);
+	}
+	
 	
 	public int setDelete(BankBookDTO bankBookDTO) throws Exception {
 		return bankBookDAO.setDelete(bankBookDTO);

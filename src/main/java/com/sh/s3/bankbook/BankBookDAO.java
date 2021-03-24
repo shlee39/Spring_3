@@ -19,6 +19,10 @@ public class BankBookDAO {
 	private final String NAMESPACE="com.sh.s3.bankbook.BankBookDAO"; 
 	//상수는 전부 대문자로 표기해주면 구분이 쉽다.
 	
+	public int setUpdate(BankBookDTO bankBookDTO)throws Exception{
+		return sqlSession.update(NAMESPACE+"setUpdate", bankBookDTO);
+	}
+	
 	public int setDelete(BankBookDTO bankBookDTO) throws Exception{
 		return sqlSession.delete(NAMESPACE+".setDelete", bankBookDTO);
 	}

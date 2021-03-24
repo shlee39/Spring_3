@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.sh.s3">
+	<logger name="com.iu.s3">
 		<level value="info" />
 	</logger>
 	

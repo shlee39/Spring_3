@@ -31,8 +31,8 @@ public class BankBookDAO {
 	}
 	
 	public BankBookDTO getSelect(BankBookDTO bankBookDTO) throws Exception{
-		long num=1L;
-		bankBookDTO = sqlSession.selectOne(NAMESPACE+".getSelect", num);
+		//long num=1L;
+		bankBookDTO = sqlSession.selectOne(NAMESPACE+".getSelect", bankBookDTO);
 		
 		return bankBookDTO;
 		
@@ -44,11 +44,6 @@ public class BankBookDAO {
 		public List<BankBookDTO> getList()throws Exception{
 			ArrayList<BankBookDTO> ar = new ArrayList<BankBookDTO>();
 
-			
-
-			
-
-			
 			return ar;
 		}
 

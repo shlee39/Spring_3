@@ -5,22 +5,20 @@
 	
 	<!-- DB 연결 Pool 객체 생성 -->
 	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
-		<property name="username" value="user01"></property>	
+		<property name="username" value="user01"></property>
 		<property name="password" value="user01"></property>
 		<property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:xe"></property>
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
 	</bean>
 	
-	<!-- DB Connection 객체와 XML 파일의 위치를 알려주는 클래스가 필요하다 -->
+	<!-- Connection 객체와 XML 파일의 위치 설정 -->
 	<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactoryBean">
-		<!--  바로 위의 dataSource  -->
 		<property name="dataSource" ref="dataSource"></property>
-		<!-- classpath는 src/main/java, src/main/resources를 의미함 -->
 		<property name="mapperLocations" value="classpath:database/mappers/*Mapper.xml"></property>
 		<property name="configLocation" value="classpath:database/config/conf.xml"></property>
 	</bean>
 	
-	<!-- 미리 전송과 결과 맵핑 -->
+	<!-- 미리 전송 과 결과 맵핑  -->
 	<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession">
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactoryBean"></constructor-arg>
 	</bean>

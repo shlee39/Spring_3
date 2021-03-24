@@ -11,8 +11,8 @@
 		<!-- 내가 별칭으로 주고싶은 데이터 타입을 풀 패키지명으로 입력 
 		그리고 뭐라고 부를 것인지 별칭을 alias에 입력해준다.
 		보통 헷갈리지 않기 위해 클래스명을 쓴다.-->
-		<typeAlias type="com.sh.s3.member.memberDTO" alias="MemberDTO"/>
-		<typeAlias type="com.sh.s3.bankbook.bankbookDTO" alias="BankBookDTO"/>
+		<typeAlias type="com.sh.s3.member.MemberDTO" alias="MemberDTO"/>
+		<typeAlias type="com.sh.s3.bankbook.BankBookDTO" alias="BankBookDTO"/>
 		<!-- 별칭 설정 후에 root-context.xml에서 configlocation 설정해준다.
 		후에 다른 곳에서 이제 명칭을 수정해도 된다. -->
 	</typeAliases>

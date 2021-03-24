@@ -7,11 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1> BankBook Select Page </h1>
+	<h1>BankBook Select Page</h1>
 	
-	<h3>Name: ${dto.bookName}</h3>
-	<h3>Number: ${dto.bookNumber}</h3>
+	<h3>Name : ${dto.bookName}</h3>
+	<h3>Number : ${dto.bookNumber}</h3>
 	
-	<a href="./bankBookDelete?bookNumber=${dto.bookNumber}">Delete</a>
+	<a href="./bankbookDelete?bookNumber=${dto.bookNumber}">Delete</a>
+
 </body>
 </html>

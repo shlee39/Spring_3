@@ -13,6 +13,8 @@
 	<h3>${member.name}</h3>
 	<h3>${member.email}</h3>
 	<h3>${member.phone}</h3>
+	
+	<a href="./memberUpdate">정보 수정</a>
 	<a href="./memberDelete">탈퇴</a>
 </body>
 </html>

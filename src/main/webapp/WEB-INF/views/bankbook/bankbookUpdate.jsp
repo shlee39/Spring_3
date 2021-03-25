@@ -9,7 +9,7 @@
 <body>
 	<h1>BankBook Update Form</h1>
 	
-	<form action="./bankbookUpdate" method="post">
+	<form action="bankbookUpdate" method="post">
 	
 		<!-- Hidden으로 번호를 아예 이용자에게 보이지 않게 할 수 있다. -->
 		Number <input type="hidden" name="bookNumber" value="${dto.bookNumber}"><br>

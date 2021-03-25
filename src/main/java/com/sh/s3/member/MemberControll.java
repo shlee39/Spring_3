@@ -16,6 +16,34 @@ public class MemberControll {
 	@Autowired
 	private MemberService memberService;
 	
+	//정보 수정
+	@RequestMapping("memberUpdate")
+	public void memberUpdate() throws Exception{}
+		
+	@RequestMapping(value="memberUpdate", method=RequestMethod.POST)
+	public String memberUpdate(MemberDTO memberDTO, HttpSession session) throws Exception{
+		int result = memberService.memberUpdate(memberDTO);
+		
+		if(result>0) {
+			session.setAttribute("member", memberDTO);			
+		}
+		
+		return "redirect:../";
+}
+	
+	//로그인한 세션을 받아와서 사용
+	@RequestMapping("memberDelete")
+	public String memberDelete(HttpSession session) throws Exception {
+		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
+		int result = memberService.memberDelete(memberDTO);
+		
+		session.invalidate(); //삭제하면서 로그아웃도 되게 한다.
+		
+		return "redirect:../";
+	}
+	
+	
+	
 	//mypage 연결
 	//1.데이터베이스에서 다시 조회해오는 방법 - 보안을 위해서 이 방법이 맞음
 	//2.세션에서 꺼내는 방법 (세션에 모든 정보가 들어있기 때문)

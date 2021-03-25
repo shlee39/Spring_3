@@ -16,6 +16,14 @@ public class MemberControll {
 	@Autowired
 	private MemberService memberService;
 	
+	//mypage 연결
+	//1.데이터베이스에서 다시 조회해오는 방법 - 보안을 위해서 이 방법이 맞음
+	//2.세션에서 꺼내는 방법 (세션에 모든 정보가 들어있기 때문)
+	@RequestMapping("memberPage")
+	public void memberPage() throws Exception{
+		
+	}
+	
 	
 	//로그아웃 - 세션을 없애든가(타임아웃), 세션안의 데이터를 날리든가
 	@RequestMapping("memberLogout")
@@ -53,11 +61,6 @@ public class MemberControll {
 		
 		//login 후 index 페이지가 나오게 한다
 		return "redirect:../";
-	}
-	
-	@RequestMapping("memberPage")
-	public void memberPage() throws Exception {
-		
 	}
 	
 	

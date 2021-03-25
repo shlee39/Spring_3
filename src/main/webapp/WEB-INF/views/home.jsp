@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!-- %@ page session="false" % 없애주어야 seesion이 제대로 작동한다. -->
 <html>
@@ -15,7 +17,7 @@
 
 
 <!-- 로그인 전 나오는 페이지들 - dto가 비어있을 때 -->
-<!-- scope명은 생략 가능하다 -->
+<!-- seesionScope명은 다른 곳으 member와 중복되지 않는다면 생략 가능하다 -->
 <c:if test="${empty member}">
 <a href="./member/memberJoin">Join</a>
 <a href="./member/memberLogin">Login</a>
@@ -23,6 +25,7 @@
 
 <!-- 로그인 성공했을 때 나오는 페이지들 - dto가 비어있지 않을 때-->
 <c:if test="${not empty member}">
+<h3> ${member.id} 님 환영합니다</h3>
 <a href="./member/memberPage">MyPage</a>
 <a href="./member/memberLogout">Logout</a>
 </c:if>

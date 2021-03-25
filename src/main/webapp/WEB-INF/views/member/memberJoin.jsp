@@ -15,9 +15,8 @@
 	NAME <input type="text" name="name"><br>
 	EMAIL <input type="text" name="email"><br>
 	PHONE <input type="text" name="phone"><br>
-	
 	<button>Join</button>
-	
 	</form>
+	
 </body>
 </html>

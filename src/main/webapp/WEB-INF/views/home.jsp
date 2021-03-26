@@ -19,7 +19,60 @@
 	
 	<h1>Home Page</h1>
 	
+<!-- 
+	기능
+	글 리스트 보기 - 누구나
+	상세보기 - 누구나, 글 리스트에서 제목을 클릭
+	글 수정 - 관리자만
+	글 삭제 - 관리자만
+	글 작성 - 관리자만
 	
+	
+	Back-end
+		- com.sh.s3.notice
+		noticeMapper
+		NoticeDAO
+			getList		: 글 리스트
+			getSelect 	: 상세보기
+			setInsert 	: 글 작성
+			setUpdate 	: 글 수정
+			setDelete	: 글 삭제
+			**setHitUpdate: select 될 때 조회수 업데이트 (1 증가)
+			
+			
+		NoticeDTO
+		
+		NoticeService
+			getList		: 글 리스트
+			getSelect 	: 상세보기
+			setInsert 	: 글 작성
+			setUpdate 	: 글 수정
+			setDelete	: 글 삭제
+			
+		NoticeController
+			getList		: 글 리스트
+			getSelect 	: 상세보기
+			setInsert 	: 글 작성
+			setUpdate 	: 글 수정
+			setDelete	: 글 삭제
+			
+	Front-end
+		- /WEB-INF/views/notice/
+		
+		글 리스트
+		/notice/noticeList		GET		noticeList.jsp
+		글 상세보기
+		/notice/noticeSelect	GET		noticeSelect.jsp
+		글 작성
+		/notice/noticeInsert	GET		noticeInsert.jsp
+		/notice/noticeInsert	POST	글 리스트로 이동
+		글 수정
+		/notice/noticeUpdate	GET		noticeUpdate.jsp
+		/notice/noticeUpdate	POST	글 리스트로 이동
+		글 삭제
+		/notice/noticeDelete	GET		글 리스트로 이동
+		
+ -->
 	
 	
 <%-- 

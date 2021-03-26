@@ -34,7 +34,7 @@ public class AccountController {
 		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
 		AccountDTO accountDTO = new AccountDTO();
 		accountDTO.setId(memberDTO.getId());
-		List<AccountDTO> ar = AccountService.getList(accountDTO);
+		List<AccountDTO> ar = accountService.getList(accountDTO);
 		model.addAttribute("list", ar);
 		
 	}

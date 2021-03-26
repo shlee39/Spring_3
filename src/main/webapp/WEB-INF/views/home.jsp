@@ -52,9 +52,9 @@
 		NoticeController
 			getList		: 글 리스트
 			getSelect 	: 상세보기
-			setInsert 	: 글 작성
+			setInsert 	: 글 작성*2
 			setUpdate 	: 글 수정*2
-			setDelete	: 글 삭제*2
+			setDelete	: 글 삭제
 			
 	Front-end
 		- /WEB-INF/views/notice/

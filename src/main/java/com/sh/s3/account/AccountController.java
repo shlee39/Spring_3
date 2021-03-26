@@ -3,7 +3,6 @@ package com.sh.s3.account;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +16,17 @@ import com.sh.s3.member.MemberDTO;
 public class AccountController {
 	
 	@Autowired
-	private AccountService AccountService;
+	private AccountService accountService;
+	
+	
+	@RequestMapping("accountInsert")
+	public String setInsert(AccountDTO accountDTO, HttpSession session)throws Exception{
+		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
+		accountDTO.setId(memberDTO.getId());
+		int result = accountService.setInsert(accountDTO);
+		return "redirect:./accountList";
+		
+	}
 
 	
 	@RequestMapping("accountList")

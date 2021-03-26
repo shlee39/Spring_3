@@ -13,6 +13,8 @@
 	<h3>Name : ${dto.bookName}</h3>
 	<h3>Number : ${dto.bookNumber}</h3>
 	
+	<a href="../account/accountInsert?bookNumber=${dto.bookNumber}">계좌 개설</a>
+	
 	<!-- c:catch : try-catch 처럼 작동 -->
 	<c:catch>
 	<!-- 로그인 상관없이 조건을 admin일때만 보이게 하는 경우? 에러발생! (로그인 안했을 경우, member가 null이 들어가기 때문)-->

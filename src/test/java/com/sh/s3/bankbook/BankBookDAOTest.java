@@ -12,18 +12,22 @@ public class BankBookDAOTest extends MyAbstractTest{
 	@Autowired
 	private BankBookDAO bankBookDAO;
 	
-	public void setDeleteTest() throws Exception {
-		
-		BankBookDTO bankBookDTO = new BankBookDTO();
-		bankBookDTO.setBookNumber(9);
-		int result = bankBookDAO.setDelete(bankBookDTO);
-		
-		assertEquals(1, result);
-	}
+//	public void setDeleteTest() throws Exception {
+//		
+//		BankBookDTO bankBookDTO = new BankBookDTO();
+//		bankBookDTO.setBookNumber(9);
+//		int result = bankBookDAO.setDelete(bankBookDTO);
+//		
+//		assertEquals(1, result);
+//	}
 	
 	@Test
 	public void getSelectTest() throws Exception{
-		BankBookDTO bankBookDTO = bankBookDAO.getSelect(null);
+		BankBookDTO bankBookDTO = new BankBookDTO();
+		bankBookDTO.setBookNumber(1);
+		bankBookDTO = bankBookDAO.getSelect(bankBookDTO);
+		
+		
 		assertNotNull(bankBookDTO);
 		
 		

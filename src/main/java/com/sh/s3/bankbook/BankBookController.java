@@ -57,7 +57,7 @@ public class BankBookController {
 	
 	//실행할 수 있는 메서드 준비
 	//이 메서드는 특정 주소가 들어왔을 때 실행한다. 형식은 GET 방식 (생략하면 GET방식으로 자동 설정)
-	@RequestMapping("bankbookList")
+	@RequestMapping(value = "bankbookList")
 	//경로명을 하나만 쓴다면 'value= '속성은 생략해도 무방하다. 두 개 이상은 value=과 함께 쉼표 작성.
 	public void getList(Model model) throws Exception {
 		List<BankBookDTO> ar = bankBookService.getList();
@@ -70,9 +70,7 @@ public class BankBookController {
 	@RequestMapping(value = "bankbookSelect")
 	public ModelAndView getSelect(BankBookDTO bankBookDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		
 		bankBookDTO = bankBookService.getSelect(bankBookDTO);
-		
 		mv.addObject("dto", bankBookDTO);
 		mv.setViewName("bankbook/bankbookSelect");
 		return mv;

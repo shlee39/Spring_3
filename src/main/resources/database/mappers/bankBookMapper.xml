@@ -9,12 +9,13 @@
 	<!-- 쿼리문만 집어넣는 것 > bankBookDAO에서 실행될것이다. -->
 	<insert id="setWrite" parameterType="com.sh.s3.bankbook.BankBookDTO"> 
 	<!-- parameterType은 한 가지만 넣을 수 있음. ?표 3개의 데이터 타입을 넣어야 함
+		insert into bankbook values(bank_seq.nextval, ?, ?, ?)
 		3개의 ?표 값 모두를 가진 것이 bankbookDTO라서 얘를 넣어준다. -->
 		insert into bankbook values(bank_seq.nextval, #{bookName},#{bookRate},#{bookSale}) 
 		<!-- SQL dev에서 bank_seq이름 확인 -->
 		
 	</insert>
-
+	<!-- Select 하기: 전체에서 1개만 가져오는 것 -->
 	<select id="getSelect" parameterType="com.sh.s3.bankbook.BankBookDTO" resultType="com.sh.s3.bankbook.BankBookDTO">
 	<!-- bookNumber 타입을 Long으로 받기 위해 -->
 		select * from bankbook where bookNumber=#{bookNumber}
@@ -23,6 +24,10 @@
 	<select id="getList" resultType="com.sh.s3.bankbook.BankBookDTO">
 		select * from bankbook order by bookNumber desc
 	</select>
+	
+	<update id="setUpdate" parameterType="com.sh.s3.bankbook.BankBookDTO">
+		update bankbook set bookName=#{bookName}, bookRate=#{bookRate}, bookSale=#{bookSale} where bookNumber=#{bookNumber}
+	</update>
 	
 	<delete id="setDelete" parameterType="com.sh.s3.bankbook.BankBookDTO">
 		delete bankbook where booknumber = #{bookNumber}

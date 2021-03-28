@@ -3,20 +3,19 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-    
- 
-    
+  
 <!-- 주로 사용하는 곳의 이름을 풀 패키지로 작성해준다. -->
-<mapper namespace="com.sh.s3.member.memberDAO">
+<mapper namespace="com.sh.s3.member.MemberDAO">
+
 	<!-- 로그인 -->
 	<!-- selelct 외에 나머지는 결과물이 전부 int 타입이기때문에 여기서는 resultType을 지정해줘야 한다. -->
+	<!-- 아이디와 비번이 맞는 멤버를 받아온다 -->
 	<select id="memberLogin" parameterType="MemberDTO" resultType="MemberDTO">
-		<!-- 아이디와 비번이 맞는 멤버를 받아온다 -->
 		select * from member where id=#{id} and pw=#{pw}
 	</select>
 	
 	<!-- 가입 -->
-	<insert id="memberJoin" parameterType="MemberDTO">
+ 	<insert id="memberJoin" parameterType="MemberDTO">
 		insert into member values(#{id}, #{pw}, #{name}, #{phone}, #{email})	
 	</insert>
 	

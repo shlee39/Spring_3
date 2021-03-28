@@ -19,7 +19,7 @@
 	</bean>
 	
 	<!-- 미리 전송 과 결과 맵핑  -->
-	<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession">
+ 	<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession">
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactoryBean"></constructor-arg>
 	</bean>
 	

@@ -2,18 +2,18 @@ package com.sh.s3.notice;
 import java.sql.Date;
 
 public class NoticeDTO {
-
-	private int num;
-	private String title;
-	private String name;
-	private String contents;
-	private Date regdate;
-	private int hit;
 	
-	public int getNum() {
+	private long num;
+	private String title;
+	private String writer;
+	private String contents;
+	private Date regDate;
+	private long hit;
+	
+	public long getNum() {
 		return num;
 	}
-	public void setNum(int num) {
+	public void setNum(long num) {
 		this.num = num;
 	}
 	public String getTitle() {
@@ -22,11 +22,11 @@ public class NoticeDTO {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getName() {
-		return name;
+	public String getWriter() {
+		return writer;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setWriter(String writer) {
+		this.writer = writer;
 	}
 	public String getContents() {
 		return contents;
@@ -34,17 +34,19 @@ public class NoticeDTO {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	public Date getRegdate() {
-		return regdate;
+	public Date getRegDate() {
+		return regDate;
 	}
-	public void setRegdate(Date regdate) {
-		this.regdate = regdate;
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
 	}
-	public int getHit() {
+	public long getHit() {
 		return hit;
 	}
-	public void setHit(int hit) {
+	public void setHit(long hit) {
 		this.hit = hit;
 	}
+	
+	
 
 }

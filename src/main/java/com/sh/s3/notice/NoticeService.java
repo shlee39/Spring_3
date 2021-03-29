@@ -3,31 +3,36 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.ModelAndView;
+
+import com.sh.s3.util.Pager;
 
 @Service
 public class NoticeService {
-
+	
 	@Autowired
 	private NoticeDAO noticeDAO;
 	
-	public List<NoticeDTO> getList() throws Exception {
-		return noticeDAO.getList();
+	public List<NoticeDTO> getList(Pager pager)throws Exception{
+		int perPage=10; // 한페이지당 보여줄 글의 갯수
+		
+		// ---- startRow, lastRow ----
+		long startRow = (pager.getCurPage()-1)*perPage+1;
+		long lastRow = pager.getCurPage()*perPage;
+		
+		pager.setStartRow(startRow);
+		pager.setLastRow(lastRow);
+		// ----------------------------------
+		
+		long totalCount = 110;
+		long totalPage = (totalCount/perPage);
+		
+		if(totalCount%perPage != 0) {
+			totalPage++;
+		}
+		
+		System.out.println("TotalPage : "+totalPage);
+		
+		return noticeDAO.getList(pager);
 	}
-	
-	public NoticeDTO getSelect(NoticeDTO noticeDTO) throws Exception {
-		return noticeDAO.getSelect(noticeDTO);
-	}
-	
-	public int setDelete(NoticeDTO noticeDTO) throws Exception {
-		return noticeDAO.setDelete(noticeDTO);
-	}
-	
-	public int setUpdate(NoticeDTO noticeDTO) throws Exception {
-		return noticeDAO.setUpdate(noticeDTO);
-	}
-	
-	public int setInsert(NoticeDTO noticeDTO) throws Exception {
-		return noticeDAO.setInsert(noticeDTO);
-	}
+
 }

@@ -5,8 +5,8 @@
     
 <mapper namespace="com.sh.s3.notice.NoticeDAO">
 
-	<select id="getList" parameterType="NoticeDTO" resultType="NoticeDTO">
-		select * from notice 
+	<select id="getList" resultType="NoticeDTO">
+		select * from notice order by num desc
 	</select>
 	
 	<select id="getSelect" parameterType="NoticeDTO" resultType="NoticeDTO">

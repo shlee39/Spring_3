@@ -8,17 +8,13 @@
 <head>
 <!-- Required meta tags -->
 <meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
 <c:import url="./template/bootStrap.jsp"></c:import>
 <title>Home</title>
 </head>
 <body>
 	<c:import url="./template/header.jsp"></c:import>
 	
-	<h1>Home Page</h1>
-	
+	<button onclick="go()">BUTTON</button>
 <!-- 
 	기능
 	글 리스트 보기 - 누구나

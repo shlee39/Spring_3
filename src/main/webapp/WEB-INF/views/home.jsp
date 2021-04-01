@@ -15,6 +15,27 @@
 	<c:import url="./template/header.jsp"></c:import>
 	
 	<button onclick="go()">BUTTON</button>
+	
+	<script type="text/javascript">
+		let f1 = function() {
+			alert('익명함수');
+		}
+	
+		function sum() {
+			return 1+1;
+		}
+		
+		function go() {
+			alert("Hello");
+			let s = sum();
+			alers(s);
+			f1();
+		}
+		
+		function() {
+			
+		}
+	</script>
 <!-- 
 	기능
 	글 리스트 보기 - 누구나

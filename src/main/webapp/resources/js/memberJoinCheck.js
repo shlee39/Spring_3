@@ -2,10 +2,11 @@
  * 
  */
 
+let check = document.getElementsByClassName("check")
+let all = document.getElementById("all");
+
 function check(){
 	alert("check");
-	let check = document.getElementsByClassName("check")
-	const all = document.getElementById("all");
 	
 	//
 	let result = true;
